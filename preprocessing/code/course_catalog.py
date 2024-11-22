@@ -14,7 +14,7 @@ for c in courses:
             if match:
                 f.write('>' + match.group(1) + '\n')
         elif "course-descriptions" in line:
-            pattern = r'course-descriptions">(.*?)<strong.*?Prerequisites:</em></strong>(.*?)</p>'
+            pattern = r'course-descriptions">(.*?)</p>'
             match = re.search(pattern, line)
             if match:
                 f.write(match.group(1) + '\n')
