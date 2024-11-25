@@ -1,7 +1,7 @@
 import requests
 import re
 
-courses = ['LING']
+courses = ['LING', 'BENG', 'CSE', 'DSC', 'ECE', 'PSYC', 'BIOL', 'MAE']
 for c in courses:
     html_file = requests.get(f"https://catalog.ucsd.edu/courses/{c}.html")
     f = open(f'../{c}_catalog.txt', 'w')
