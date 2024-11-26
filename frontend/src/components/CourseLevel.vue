@@ -1,143 +1,115 @@
+<script setup>
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'  // Removed watch
+
+const props = defineProps({
+  modelValue: {
+    type: Array,
+    default: () => []
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
+const isOpen = ref(false)
+const selectedLevels = ref(props.modelValue)
+const selectAll = ref(false)
+
+// Course level data
+const levels = [
+  { id: 1, name: 'Lower Division', value: 'lower', description: '(1-99)' },
+  { id: 2, name: 'Upper Division', value: 'upper', description: '(100-199)' },
+  { id: 3, name: 'Graduate', value: 'graduate', description: '(200+)' }
+]
+
+// Computed property for button text
+const getSelectedLevelsText = computed(() => {
+  if (selectedLevels.value.length === 0) {
+    return 'Select Course Levels'
+  }
+  if (selectedLevels.value.length === levels.length) {
+    return 'All Levels Selected'
+  }
+  return `${selectedLevels.value.length} Levels Selected`
+})
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value
+}
+
+const updateSelection = () => {
+  // Update selectAll state here instead of using watch
+  selectAll.value = selectedLevels.value.length === 3
+  emit('update:modelValue', selectedLevels.value)
+}
+
+const toggleSelectAll = () => {
+  if (selectAll.value) {
+    selectedLevels.value = ['lower', 'upper', 'graduate']
+  } else {
+    selectedLevels.value = []
+  }
+  updateSelection()
+}
+
+// Optional: Click outside to close
+const closeDropdown = (e) => {
+  if (!e.target.closest('.dropdown')) {
+    isOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', closeDropdown)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', closeDropdown)
+})
+</script>
+
 <template>
-    <div class="course-level-selector">
-      <button 
-        @click="toggleDropdown" 
-        class="level-button"
-      >
-        {{ getSelectedLevelsText }}
-      </button>
-  
-      <div 
-        v-if="isOpen" 
-        class="level-content"
-      >
-        <!-- Multiple selection with checkboxes -->
-        <div class="level-options">
-          <label class="level-option">
+  <div class="dropdown">
+    <button 
+      @click="toggleDropdown" 
+      class="dropdown-button"
+    >
+      {{ getSelectedLevelsText }}
+    </button>
+
+    <div 
+      v-if="isOpen" 
+      class="dropdown-content"
+    >
+      <div class="class-list">
+        <div 
+          v-for="level in levels" 
+          :key="level.id"
+          class="dropdown-item"
+        >
+          <label class="checkbox-label">
             <input 
-              type="checkbox"
+              type="checkbox" 
+              :value="level.value"
               v-model="selectedLevels"
-              value="lower"
+              @change="updateSelection"
             >
-            Lower Division (1-99)
-          </label>
-  
-          <label class="level-option">
-            <input 
-              type="checkbox"
-              v-model="selectedLevels"
-              value="upper"
-            >
-            Upper Division (100-199)
-          </label>
-  
-          <label class="level-option">
-            <input 
-              type="checkbox"
-              v-model="selectedLevels"
-              value="graduate"
-            >
-            Graduate (200+)
-          </label>
-        </div>
-  
-        <!-- Optional: Add a select/deselect all option -->
-        <div class="select-all">
-          <label>
-            <input 
-              type="checkbox"
-              v-model="selectAll"
-              @change="toggleSelectAll"
-            >
-            Select All
+            <span class="course-name">{{ level.name }} {{ level.description }}</span>
           </label>
         </div>
       </div>
+
+      <div class="select-all">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox"
+            v-model="selectAll"
+            @change="toggleSelectAll"
+          >
+          <span class="course-name">Select All</span>
+        </label>
+      </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'CourseLevel',
-    
-    data() {
-      return {
-        isOpen: false,
-        selectedLevels: [],
-        selectAll: false
-      }
-    },
-  
-    computed: {
-      getSelectedLevelsText() {
-        if (this.selectedLevels.length === 0) {
-          return 'Select Course Levels'
-        }
-        if (this.selectedLevels.length === 3) {
-          return 'All Levels Selected'
-        }
-        const levelNames = {
-          lower: 'Lower Division',
-          upper: 'Upper Division',
-          graduate: 'Graduate'
-        }
-        return this.selectedLevels.map(level => levelNames[level]).join(', ')
-      }
-    },
-  
-    methods: {
-      toggleDropdown() {
-        this.isOpen = !this.isOpen
-      },
-  
-      toggleSelectAll() {
-        if (this.selectAll) {
-          this.selectedLevels = ['lower', 'upper', 'graduate']
-        } else {
-          this.selectedLevels = []
-        }
-        this.updateSelection()
-      },
-  
-      updateSelection() {
-        // Save to localStorage
-        localStorage.setItem('selectedLevels', JSON.stringify(this.selectedLevels))
-        // Emit to parent
-        this.$emit('levels-selected', this.selectedLevels)
-      },
-  
-      closeDropdown(e) {
-        if (!this.$el.contains(e.target)) {
-          this.isOpen = false
-        }
-      }
-    },
-  
-    watch: {
-      selectedLevels: {
-        handler(newVal) {
-          this.selectAll = newVal.length === 3
-          this.updateSelection()
-        },
-        deep: true
-      }
-    },
-  
-    mounted() {
-      // Load saved selections
-      const savedLevels = localStorage.getItem('selectedLevels')
-      if (savedLevels) {
-        this.selectedLevels = JSON.parse(savedLevels)
-      }
-      document.addEventListener('click', this.closeDropdown)
-    },
-  
-    beforeDestroy() {
-      document.removeEventListener('click', this.closeDropdown)
-    }
-  }
-  </script>
-  
+  </div>
+</template>
   <style scoped>
   .course-level-selector {
     position: relative;
@@ -148,7 +120,7 @@
   .level-button {
     width: 100%;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #056469;
     color: white;
     border: none;
     border-radius: 4px;
@@ -158,7 +130,7 @@
   }
   
   .level-button:hover {
-    background-color: #45a049;
+    background-color: #17801c;
   }
   
   .level-content {
@@ -166,8 +138,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #fff;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #000000;
+    box-shadow: 0px 8px 16px 0px rgba(156, 15, 15, 0.2);
     border-radius: 4px;
     margin-top: 4px;
     z-index: 1;
@@ -193,7 +165,7 @@
   .select-all {
     padding: 10px;
     border-top: 1px solid #eee;
-    background-color: #f9f9f9;
+    background-color: #090000;
   }
   
   input[type="checkbox"] {
