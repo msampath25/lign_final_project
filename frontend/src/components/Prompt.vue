@@ -1,10 +1,17 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 const promptText = ref('')
 const wordCount = ref(0)
 
-const emit = defineEmits(['prompt-submitted'])
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: ''
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
 
 const isNearLimit = computed(() => {
   return wordCount.value >= 450 && wordCount.value < 500
@@ -25,13 +32,13 @@ const handleInput = () => {
     promptText.value = words.slice(0, 500).join(' ')
   }
 
-  // Save to localStorage
-  localStorage.setItem('searchPrompt', promptText.value)
+  // Emit the new value for v-model
+  emit('update:modelValue', promptText.value)
 }
 
 const submitPrompt = () => {
   if (promptText.value.trim()) {
-    emit('prompt-submitted', promptText.value.trim())
+    emit('update:modelValue', promptText.value.trim())
   }
 }
 
@@ -42,12 +49,14 @@ const adjustTextareaHeight = (event) => {
   textarea.style.height = `${textarea.scrollHeight}px`
 }
 
+// Sync promptText with modelValue
+watch(() => props.modelValue, (newValue) => {
+  promptText.value = newValue
+})
+
 onMounted(() => {
-  const savedPromptText = localStorage.getItem('searchPrompt')
-  if (savedPromptText) {
-    promptText.value = savedPromptText
-    handleInput() // Update word count
-  }
+  // Initialize promptText with modelValue
+  promptText.value = props.modelValue
 })
 </script>
 
@@ -70,14 +79,6 @@ onMounted(() => {
     <div v-if="isAtLimit" class="limit-warning">
       You've reached the 500 word limit
     </div>
-    
-    <button 
-      @click="submitPrompt" 
-      class="submit-button"
-      :disabled="!promptText.trim()"
-    >
-      Submit Search Criteria
-    </button>
   </div>
 </template>
 

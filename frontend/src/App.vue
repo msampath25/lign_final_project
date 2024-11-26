@@ -18,21 +18,21 @@ watchEffect(() => {
   })
 })
 
-// handler function for logging/debugging
-const handleLevelsChange = (levels) => {
-  console.log('Levels changed:', levels);
-  selectedLevels.value = levels
-};
+// // handler function for logging/debugging
+// const handleLevelsChange = (levels) => {
+//   console.log('Levels changed:', levels);
+//   selectedLevels.value = levels
+// };
 
-const handleDepartmentsChange = (departments) => {
-  console.log('Departments changed:', departments);
-  selectedDepartments.value = departments
-};
+// const handleDepartmentsChange = (departments) => {
+//   console.log('Departments changed:', departments);
+//   selectedDepartments.value = departments
+// };
 
-const handlePromptSubmit = (prompt) => {
-  console.log('Prompt submitted:', prompt);
-  searchPrompt.value = prompt
-};
+// const handlePromptSubmit = (prompt) => {
+//   console.log('Prompt submitted:', prompt);
+//   searchPrompt.value = prompt
+// };
 </script>
 
 <style scoped>
@@ -60,15 +60,15 @@ const handlePromptSubmit = (prompt) => {
       <div class="filter-section space-y-4">
         <h2 class="text-xl font-semibold mb-4 text-white bg-transparent">Filter Courses</h2>
         <div class="grid gap-4 md:grid-cols-2">
-          <CourseLevel @levels-change="handleLevelsChange" />
-          <Department @departments-change="handleDepartmentsChange" />
+          <CourseLevel v-model="selectedLevels" />
+          <Department v-model="selectedDepartments" />
         </div>
       </div>
 
       <!-- Prompt Section -->
       <div class="prompt-section mt-8">
         <h2 class="text-xl font-semibold mb-4 text-white bg-transparent">Generate Search</h2>
-        <Prompt @prompt-submitted="handlePromptSubmit" />
+        <Prompt v-model="searchPrompt" />
       </div>
     </div>
   </div>
