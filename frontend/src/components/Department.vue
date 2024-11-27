@@ -17,7 +17,7 @@ const selectedDepartments = ref(props.modelValue)
 
 // Course data
 const courses = [
-  { id: 1, name: 'LING' },
+  { id: 1, name: 'LIGN' },
   { id: 2, name: 'BENG' },
   { id: 3, name: 'CSE' },
   { id: 4, name: 'DSC' },
