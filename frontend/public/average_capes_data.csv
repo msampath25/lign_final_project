@@ -1,0 +1,382 @@
+C,R,H,GE,GR,P,PR
+BENG 100,69.92,6.26,3.36,3.35,Abbasi Shaghayegh,100.0
+BENG 102,68.55,6.06,3.71,3.64,Engler Adam J.,72.0
+BENG 103B,74.0,9.51,3.31,3.27,Fraley Stephanie I.,77.12
+BENG 110,79.68,6.91,3.32,3.19,Mc Culloch Andrew Douglas,80.54
+BENG 112A,93.77,6.52,3.35,3.06,Valdez-Jasso Daniela,99.63
+BENG 112B,85.98,6.48,3.43,3.57,Engler Adam J.,100.0
+BENG 119A,100.0,4.75,3.95,3.78,Wheeler Bruce Christopher,100.0
+BENG 119B,91.42,7.6,3.96,3.87,Taylor Amos Alyssa C,100.0
+BENG 120,58.81,6.91,3.42,3.6,Huang Xiaohua,68.03
+BENG 122A,60.44,6.97,3.52,3.53,Cauwenberghs Gert,88.57
+BENG 123,67.52,11.38,3.33,3.02,Haiman Zachary Brandon,87.5
+BENG 125,85.25,5.9,3.45,3.51,Wheeler Bruce Christopher,91.33
+BENG 126A,77.77,3.99,3.89,3.82,Wheeler Bruce Christopher,95.23
+BENG 126B,81.85,6.88,3.93,3.88,Wheeler Bruce Christopher,100.0
+BENG 127A,100.0,6.68,3.9,3.89,Wheeler Bruce Christopher,100.0
+BENG 127B,100.0,7.06,4.0,3.92,Wheeler Bruce Christopher,100.0
+BENG 129A,88.9,5.61,4.0,3.95,Wheeler Bruce Christopher,100.0
+BENG 129B,80.0,4.9,4.0,3.95,Wheeler Bruce Christopher,80.0
+BENG 130,61.65,6.72,3.29,3.36,Subramaniam Shankar,79.67
+BENG 133,88.1,8.2,3.28,3.56,Mali Prashant Gulab Ram,90.12
+BENG 134,68.45,9.88,3.03,3.23,Smarr Benjamin,81.95
+BENG 135,96.88,6.43,3.77,3.62,Wheeler Bruce Christopher,95.32
+BENG 140A,86.2,5.85,3.46,3.48,Cabrales Pedro,96.1
+BENG 140B,84.37,6.64,3.5,3.34,Cabrales Pedro,92.78
+BENG 141,92.5,4.79,3.84,3.85,Lal Ratnesh,87.72
+BENG 152,96.3,7.37,3.9,3.8,Wheeler Bruce Christopher,100.0
+BENG 160,85.32,7.8,3.67,3.69,Zhang Kun,89.38
+BENG 161A,87.0,8.53,3.47,3.33,Lewis Nathan E,100.0
+BENG 161B,70.85,7.06,3.61,3.41,Huang Xiaohua,76.78
+BENG 162,79.72,8.16,3.53,3.48,Mali Prashant Gulab Ram,76.08
+BENG 166A,54.95,6.93,3.67,3.72,Sah Robert Lie-Yuan,60.4
+BENG 168,85.6,6.57,3.41,3.67,Wang Yingxiao,83.22
+BENG 169A,88.9,4.72,4.0,3.92,Wheeler Bruce Christopher,100.0
+BENG 169B,100.0,5.24,4.0,3.92,Wheeler Bruce Christopher,100.0
+BENG 172,85.52,9.83,3.73,3.61,Cabrales Pedro,98.28
+BENG 179A,95.0,6.62,4.0,3.79,Wheeler Bruce Christopher,97.5
+BENG 179B,81.63,7.44,3.86,3.78,Wheeler Bruce Christopher,93.32
+BENG 181,85.98,17.08,3.49,3.44,Pevzner Pavel Arkadjevich,75.56
+BENG 182,79.2,7.32,3.58,3.55,Bafna Vineet,88.12
+BENG 183,83.18,6.27,3.74,3.77,Benner Christopher William,92.6
+BENG 186A,85.95,6.52,3.39,3.32,Kwon Ester Jihae,91.02
+BENG 186B,80.82,9.88,3.3,3.39,Cauwenberghs Gert,89.7
+BENG 187A,88.92,1.75,3.98,3.0,Wheeler Bruce Christopher,97.0
+BENG 187D,94.71,4.98,3.93,3.88,Wheeler Bruce Christopher,95.97
+BENG 189,90.1,8.39,3.43,3.59,Contijoch Francisco,96.18
+BENG 193,100.0,4.31,3.95,4.0,Engler Adam J.,100.0
+BENG 2,96.15,6.11,3.48,3.44,Wheeler Bruce Christopher,100.0
+CSE 100,94.98,11.9,3.44,3.2,Alvarado Christine J.,99.4
+CSE 100R,97.63,8.24,3.63,3.49,Moshiri Alexander Niema,98.65
+CSE 101,89.78,9.85,3.27,3.25,Dasgupta Sanjoy,97.3
+CSE 103,76.72,6.81,3.44,3.22,Dasgupta Sanjoy,96.5
+CSE 105,82.79,8.57,3.4,3.3,Minnes Kemp Mor Mia,96.62
+CSE 106,67.85,8.78,3.22,3.12,Paturi Ramamohan,80.35
+CSE 107,80.92,7.98,3.37,3.05,Bellare Mihir,91.22
+CSE 11,91.73,9.14,3.67,3.37,Moshiri Alexander Niema,98.9
+CSE 110,72.61,10.6,3.54,3.51,Politz Joseph Gibbs,96.2
+CSE 112,88.57,8.21,3.67,3.68,Powell Thomas Allan,90.07
+CSE 12,92.01,10.83,3.5,3.29,Alvarado Christine J.,98.2
+CSE 120,90.18,10.23,3.35,3.18,Voelker Geoffrey M.,99.5
+CSE 123,83.96,12.31,3.12,2.88,Snoeren Alex C.,93.02
+CSE 124,95.02,8.88,3.43,3.28,Porter George M,95.8
+CSE 125,100.0,12.29,3.95,4.0,Voelker Geoffrey M.,100.0
+CSE 127,93.06,8.76,3.45,3.37,Savage Stefan,99.12
+CSE 130,87.26,8.67,3.52,3.42,Knoth Tristan Joseph,100.0
+CSE 131,94.5,8.68,3.71,3.58,Politz Joseph Gibbs,93.5
+CSE 132A,84.77,6.36,3.39,3.15,Deutsch Alin Bernard,86.55
+CSE 132B,85.1,7.88,3.71,3.78,Deutsch Alin Bernard,84.76
+CSE 132C,84.98,9.13,3.52,3.41,Kumar Arun Kumar,87.6
+CSE 134B,83.26,10.55,3.34,3.1,Powell Thomas Allan,83.15
+CSE 135,77.41,12.74,3.36,3.25,Powell Thomas Allan,78.67
+CSE 140,74.0,8.55,3.31,3.19,Chin Bryan W.,92.8
+CSE 140L,67.68,10.3,3.54,3.57,Eldon John,85.32
+CSE 141,81.81,8.15,3.29,3.33,Merrill Devon James,100.0
+CSE 141L,76.08,9.13,3.44,3.33,Taram Mohammadkazem,94.4
+CSE 142,84.34,8.32,3.37,3.31,Porter Leonard Emerson,93.12
+CSE 142L,63.81,11.04,3.44,3.55,Tseng Hung-Wei,90.0
+CSE 143,80.08,6.94,3.1,3.42,Gupta Rajesh K.,93.9
+CSE 145,100.0,8.3,3.38,4.0,Kastner Ryan Charles,100.0
+CSE 150,98.8,7.88,3.79,3.79,Gao Sicun,97.6
+CSE 150A,91.28,9.24,3.43,3.53,Geumlek Joseph Donald,97.7
+CSE 150B,97.3,6.91,3.76,3.75,Gao Sicun,96.72
+CSE 151,92.97,7.67,3.49,3.46,Geumlek Joseph Donald,100.0
+CSE 151A,93.89,7.89,3.65,3.65,Eldridge Justin Matthew,100.0
+CSE 151B,81.18,12.59,3.5,3.61,Cottrell Garrison W,77.0
+CSE 152,78.6,10.8,3.29,3.19,Kriegman David J,82.95
+CSE 152A,92.23,8.85,3.59,3.59,Ochoa Benjamin Lawrence,93.0
+CSE 152B,94.33,8.83,3.6,3.77,Chandraker Manmohan Krishna,96.87
+CSE 154,89.5,14.76,3.32,3.48,Cottrell Garrison W,78.9
+CSE 156,91.53,9.75,3.4,3.26,Nakashole Ndapandula,86.53
+CSE 158,90.34,8.2,3.52,3.65,McAuley Julian John,93.4
+CSE 158R,96.7,6.95,3.74,3.88,McAuley Julian John,98.9
+CSE 15L,90.36,4.79,3.75,3.52,Soosai Raj Adalbert Geral,98.2
+CSE 160,92.65,7.28,3.61,3.32,Kastner Ryan Charles,96.35
+CSE 165,100.0,11.73,3.88,3.86,Schulze Jurgen P.,100.0
+CSE 166,94.36,8.97,3.37,2.86,Ochoa Benjamin Lawrence,89.28
+CSE 167,88.8,10.86,3.48,3.33,Schulze Jurgen P.,93.15
+CSE 168,97.68,13.12,3.59,3.65,Ramamoorthi Ravi,100.0
+CSE 169,96.58,9.63,3.65,3.51,Rotenberg Steven Paul,95.4
+CSE 170,56.14,7.6,3.55,3.57,Xia Haijun,87.5
+CSE 175,94.37,5.89,3.72,3.3,Kumar Rakesh,95.23
+CSE 176A,80.93,6.94,3.68,3.72,Riek Laurel D,90.47
+CSE 180,58.3,8.17,3.63,3.31,Safonova Iana,25.0
+CSE 181,82.38,15.17,3.38,3.62,Pevzner Pavel Arkadjevich,74.06
+CSE 182,88.6,8.89,3.47,3.5,Bafna Vineet,97.23
+CSE 185,94.48,9.58,3.67,3.54,Gymrek Melissa Ann,96.8
+CSE 190,90.48,7.34,3.63,3.52,Deutsch Alin Bernard,100.0
+CSE 191,97.61,3.17,3.93,3.67,Gao Sicun,100.0
+CSE 193,98.22,8.28,3.92,3.84,Elsherif May Elhussein,100.0
+CSE 194,89.18,4.75,3.91,3.69,Munyaka Imani N. S.,93.75
+CSE 20,89.78,8.06,3.52,3.28,Knoth Tristan Joseph,100.0
+CSE 21,87.26,7.88,3.4,3.2,Braun Oliver,93.02
+CSE 3,88.2,6.5,3.7,3.43,Soosai Raj Adalbert Geral,100.0
+CSE 30,89.96,11.36,3.42,3.05,Bhaskar Nishant,100.0
+CSE 5A,76.5,9.93,3.65,3.32,Miranda Gregory Joseph,90.8
+CSE 6R,85.95,6.18,3.28,2.92,Moshiri Alexander Niema,95.25
+CSE 7,100.0,6.23,3.43,3.05,Gupta Anjum,93.3
+CSE 8A,91.93,7.87,3.57,3.39,Alvarado Christine J.,99.1
+CSE 8B,86.91,10.88,3.4,3.14,Soosai Raj Adalbert Geral,95.7
+DSC 10,93.81,8.09,3.58,3.24,Lau Samuel Ethan,100.0
+DSC 100,79.03,6.43,3.64,3.74,Rajasekar Arcot Kuppuswam,78.9
+DSC 102,82.7,8.82,3.48,3.58,Kolovos Alexandros,91.3
+DSC 104,91.65,7.14,3.9,3.92,Gupta Amarnath,81.65
+DSC 106,67.46,8.8,3.62,3.64,Wilber Jared Dane,96.3
+DSC 120,77.75,9.62,3.32,3.52,Cloninger Alexander,87.6
+DSC 140A,59.49,7.75,3.34,3.38,Bradic Jelena,100.0
+DSC 140B,95.65,6.08,3.51,3.4,Eldridge Justin Matthew,95.7
+DSC 148,94.9,6.86,3.9,3.82,Shang Jingbo,89.5
+DSC 160,100.0,5.59,4.0,3.83,Twomey Robert Daniel,100.0
+DSC 161,100.0,6.38,3.5,3.62,Roberts Margaret Earling,100.0
+DSC 167,86.25,5.65,3.68,3.44,Fraenkel Aaron Mcmillan,97.5
+DSC 170,91.9,10.48,3.51,3.81,Zaslavsky Ilya,96.66
+DSC 180A,85.34,8.4,3.65,3.75,Rampure Suraj,97.2
+DSC 180B,93.52,9.73,3.76,3.92,Rampure Suraj,100.0
+DSC 190,89.58,6.68,3.79,3.82,Hu Zhiting,100.0
+DSC 20,87.7,10.67,3.4,3.1,Langlois Marina,86.06
+DSC 30,78.45,12.4,3.24,2.94,Langlois Marina,85.78
+DSC 40A,83.39,8.76,3.26,3.14,Rampure Suraj,100.0
+DSC 40B,93.33,6.27,3.51,3.34,Eldridge Justin Matthew,97.89
+DSC 80,90.61,13.1,3.38,3.24,Eldridge Justin Matthew,100.0
+ECE 100,87.21,9.31,3.26,2.92,Hall Drew A.,93.7
+ECE 101,87.93,8.46,3.18,3.02,Baghdadchi Saharnaz,96.38
+ECE 102,94.39,8.67,3.08,3.08,Le Hanh-Phuc,96.15
+ECE 103,77.51,6.65,3.09,3.12,Kuzum Duygu,93.4
+ECE 107,75.12,9.3,2.99,2.95,Lomakin Vitaliy,78.67
+ECE 109,72.35,7.84,3.04,2.87,Vardy Alexander,81.1
+ECE 111,85.63,7.25,3.52,3.55,Lin Bill,97.85
+ECE 120,94.4,3.94,3.39,3.36,Quest Kevin B,94.4
+ECE 121A,92.2,8.9,3.15,3.13,Esmaili Gholamreza,88.02
+ECE 121B,92.38,8.88,3.3,3.14,Esmaili Gholamreza,94.92
+ECE 123,94.14,6.56,3.43,3.09,Sievenpiper Daniel F.,97.12
+ECE 124,92.95,12.48,3.37,3.63,Esmaili Gholamreza,90.68
+ECE 125A,96.88,8.77,3.23,3.08,Esmaili Gholamreza,94.45
+ECE 125B,83.14,10.47,3.28,3.45,Esmaili Gholamreza,85.64
+ECE 128A,90.62,5.99,3.43,3.55,Abi Samra Nicholas Camill,95.83
+ECE 128B,92.38,5.72,3.52,3.54,Abi Samra Nicholas Camill,97.23
+ECE 128C,96.73,5.66,3.79,3.83,Abi Samra Nicholas Camill,96.7
+ECE 134,100.0,5.38,3.56,3.49,Ng Tse Nga,100.0
+ECE 135A,93.75,6.54,3.48,3.1,Kuzum Duygu,100.0
+ECE 140A,82.16,11.12,3.54,3.37,Khoshabeh Ramsin,90.12
+ECE 140B,81.66,11.3,3.53,3.42,Khoshabeh Ramsin,96.92
+ECE 141A,85.08,13.07,3.47,2.98,Gessner Richard K.,91.3
+ECE 141B,91.0,13.17,3.6,3.45,Gessner Richard K.,98.82
+ECE 143,96.45,7.5,3.86,3.83,Unpingco Jose H.,97.4
+ECE 144,94.56,10.72,3.4,3.62,Phan Alex Minh Giang,97.45
+ECE 148,91.07,11.72,3.71,3.92,Silberman Jack,87.62
+ECE 15,78.69,9.03,3.17,2.84,Wang Edward Jay,91.2
+ECE 150,89.85,5.22,3.78,3.46,Kumar Rakesh,86.3
+ECE 153,84.17,7.27,3.23,3.24,Lugannani Robert,100.0
+ECE 157A,94.1,9.36,3.39,3.68,Ling Patrick L,100.0
+ECE 158A,90.1,5.14,3.36,3.19,Franceschetti Massimo,94.43
+ECE 158B,90.47,8.1,3.28,3.38,Zhang Xinyu,95.23
+ECE 16,90.96,10.85,3.42,3.42,Schurgers Curt,100.0
+ECE 161A,80.58,8.8,2.92,2.81,Rao Bhaskar D.,79.37
+ECE 161B,97.34,7.94,3.14,3.26,Nguyen Truong Quang,100.0
+ECE 161C,83.16,7.95,3.54,3.59,Harris Frederick Joel,82.24
+ECE 163,91.08,8.95,3.25,3.46,Hsueh Tzu-Chien,93.68
+ECE 164,92.08,13.66,3.25,2.9,Hall Drew A.,94.4
+ECE 165,87.94,11.73,3.25,3.23,Mercier Patrick Philip,90.98
+ECE 166,94.62,11.85,3.2,2.78,Rebeiz Gabriel,92.0
+ECE 17,90.21,10.02,3.54,3.14,Gilja Vikash,94.5
+ECE 171A,85.8,9.22,3.37,3.43,Atanasov Nikolay A.,100.0
+ECE 171B,93.72,8.12,3.25,3.26,Shi Yuanyuan,98.3
+ECE 172A,83.28,8.91,3.29,3.32,Trivedi Mohan M.,82.8
+ECE 174,83.7,10.76,2.96,2.87,Pal Piya,89.6
+ECE 175A,80.06,9.68,3.09,3.14,Vasconcelos Nuno,80.62
+ECE 175B,80.6,8.73,3.5,3.4,Kreutz-Delgado Kenneth,92.3
+ECE 176,91.85,8.21,3.64,3.8,Wang Xiaolong,82.8
+ECE 180,93.15,6.0,3.65,3.65,Abi Samra Nicholas Camill,100.0
+ECE 183,87.18,7.92,3.0,3.08,Mookherjea Shayan,98.0
+ECE 188,96.15,7.14,3.88,3.9,Twomey Robert Daniel,100.0
+ECE 191,87.3,11.87,3.52,3.35,Zhang Xinyu,94.04
+ECE 25,88.19,6.97,3.25,3.09,Morris Karcher William,96.93
+ECE 30,65.0,8.53,3.03,2.83,Kang Mingu,85.9
+ECE 35,85.15,9.47,3.06,2.61,Ford Joseph Earl,94.9
+ECE 45,74.66,8.67,3.04,2.92,Alcantara Eldridge Escubido,100.0
+ECE 5,97.6,6.25,3.82,3.6,Lin Bill,100.0
+ECE 65,95.3,8.44,3.4,3.01,Saad Andrew S,100.0
+LIGN 101,97.35,4.17,3.61,3.43,Demir Nese,100.0
+LIGN 108,100.0,4.0,3.41,3.11,Rose Sharon,100.0
+LIGN 110,93.63,5.3,3.33,3.34,Garellek Marc,98.3
+LIGN 111,90.78,5.72,3.39,3.3,Rose Sharon,95.05
+LIGN 112,98.37,4.22,3.39,3.01,Garellek Marc,99.1
+LIGN 113,96.0,4.05,3.71,3.42,Styler William Francis,100.0
+LIGN 119,95.1,3.92,3.56,3.21,Goodall Grant Todd,100.0
+LIGN 120,85.82,4.48,3.52,3.38,Yuan Michelle,99.07
+LIGN 121,87.52,5.28,3.28,3.24,Yuan Michelle,96.8
+LIGN 130,91.37,4.41,3.31,2.99,Caponigro Ivano,92.28
+LIGN 142,96.15,4.94,3.53,3.26,Drake Emily C,100.0
+LIGN 143,92.83,3.82,3.52,3.57,Bakovic Eric John,100.0
+LIGN 144,94.45,4.58,3.53,3.49,Lott Margaret S.,100.0
+LIGN 146,100.0,2.69,3.74,3.76,Lott Margaret S.,100.0
+LIGN 148,80.1,3.58,3.33,3.19,Mayberry Rachel,83.37
+LIGN 150,85.9,5.64,3.46,3.32,Garellek Marc,90.0
+LIGN 152,88.75,4.25,3.59,3.36,Caballero Gabriela Hernandez,100.0
+LIGN 154,95.0,4.46,3.24,2.96,Kluender Robert,96.5
+LIGN 155,76.9,6.44,2.99,2.88,Kluender Robert,78.5
+LIGN 160,87.87,4.6,3.22,3.31,Kehler Andrew Scott,83.4
+LIGN 165,86.78,6.03,3.55,3.31,Bergen Leon,93.78
+LIGN 167,90.47,6.37,3.52,3.41,Bergen Leon,93.6
+LIGN 17,97.21,3.32,3.46,3.17,Kehler Andrew Scott,99.03
+LIGN 170,78.0,4.3,3.42,3.12,Wittenberg Eva H,87.8
+LIGN 171,80.65,3.75,3.25,3.24,Mayberry Rachel,77.3
+LIGN 174,95.2,3.64,3.24,3.14,Micklos Ashley M.,100.0
+LIGN 175,93.53,3.75,3.65,3.46,Garellek Marc,98.73
+LIGN 176,93.67,4.16,3.53,3.51,Ackerman Farrell,93.0
+LIGN 177,88.65,3.56,3.61,3.31,Rose Sharon,100.0
+LIGN 178,100.0,3.14,3.73,3.29,Munoz Sanchez Alicia,100.0
+LIGN 179,85.4,6.18,3.21,3.29,Kluender Robert,89.55
+LIGN 180,73.45,6.5,3.24,3.36,Kluender Robert,69.05
+LIGN 181,84.25,6.79,3.2,3.1,Kluender Robert,88.1
+LIGN 4,86.8,3.56,3.21,2.77,Wittenberg Eva H,88.5
+LIGN 42,100.0,1.86,3.86,3.71,Styler William Francis,100.0
+LIGN 5,91.9,2.9,3.52,3.0,Goodall Grant Todd,98.38
+LIGN 6,98.92,3.26,3.71,3.59,Styler William Francis,100.0
+LIGN 7,90.3,3.46,3.56,3.33,Semushina Nina,100.0
+LIGN 8,96.29,3.76,3.7,3.62,Caballero Gabriela Hernandez,98.9
+MAE 101A,92.8,8.4,3.08,3.13,Behrou Reza,100.0
+MAE 101B,93.72,8.31,3.23,3.06,Bilgin Eylul,100.0
+MAE 101C,91.04,7.47,3.14,3.11,Pham Hieu Tan,100.0
+MAE 104,95.78,7.78,3.3,3.15,Lasheras Juan C.,100.0
+MAE 105,83.13,8.24,3.05,3.13,Saintillan David,97.45
+MAE 107,76.3,8.27,3.17,3.02,Sharma Harsh Apurva,96.7
+MAE 108,83.67,7.7,3.3,3.35,Pham Hieu Tan,94.55
+MAE 11,84.65,9.05,3.05,2.83,Rangamani Padmini,95.9
+MAE 113,93.06,7.97,3.33,3.21,Weiss Adam Daniel,100.0
+MAE 118,77.83,3.19,3.24,2.72,Krasheninnikov Sergei,52.07
+MAE 119,87.24,6.57,3.3,3.37,Kleissl Jan,95.1
+MAE 120,83.55,6.37,3.21,3.37,Arefiev Alexey,90.87
+MAE 122,74.82,7.48,2.97,3.07,Pawlak Geno Ronald,78.75
+MAE 123,93.0,5.83,3.18,3.25,Kleissl Jan,100.0
+MAE 124,98.7,4.4,3.63,3.61,Teranes Jane,100.0
+MAE 125,90.33,6.04,3.31,3.52,Kleissl Jan,94.57
+MAE 126A,91.67,10.01,3.32,3.47,Kleissl Jan,100.0
+MAE 126B,92.3,11.42,3.62,3.57,Pawlak Geno Ronald,92.3
+MAE 130,75.17,7.08,2.99,3.35,Bahadori Mohammad Yousef,87.5
+MAE 130A,98.37,5.02,3.45,3.01,Lubarda Marko,100.0
+MAE 130B,91.5,9.37,3.0,2.82,Ghazinejad Maziar,98.9
+MAE 130C,82.65,6.46,3.18,3.43,Abi Ghanem Maroun,100.0
+MAE 131A,94.56,7.0,3.21,3.08,Ghazinejad Maziar,99.22
+MAE 131B,90.36,7.05,3.24,3.21,Ghazinejad Maziar,98.54
+MAE 140,82.6,6.87,2.97,2.89,Cortes Jorge,94.4
+MAE 142,95.84,5.34,3.56,3.49,Anderson Mark Ronald,96.76
+MAE 143A,63.68,8.82,2.85,2.94,Bahadori Mohammad Yousef,77.95
+MAE 143B,72.39,8.53,3.02,3.23,Anderson Mark Ronald,100.0
+MAE 144,64.5,9.78,2.87,3.2,Bewley Thomas R,52.65
+MAE 145,82.65,7.99,3.39,3.28,Martinez Sonia,87.85
+MAE 146,97.85,8.82,3.64,3.62,Martinez Sonia,94.9
+MAE 148,91.18,12.54,3.63,3.9,de Oliveira Mauricio,100.0
+MAE 150,90.59,9.29,3.3,3.0,Gravish Nicholas G,97.8
+MAE 154,100.0,8.64,3.96,3.5,Delson Nathan Joseph,97.9
+MAE 155A,97.68,7.17,3.69,3.73,Anderson Mark Ronald,100.0
+MAE 155B,97.76,8.7,3.77,3.8,Hwang John T,100.0
+MAE 156A,71.74,10.88,3.38,3.32,Gravish Nicholas G,96.78
+MAE 156B,94.77,13.29,3.72,3.77,Qi Huihui,100.0
+MAE 160,88.98,5.68,3.66,3.59,Evdokimenko Ekaterina,99.04
+MAE 166,79.18,5.82,3.15,3.33,Xu Sheng,89.45
+MAE 170,69.39,9.74,3.42,3.56,Beg Farhat N.,95.5
+MAE 171A,62.04,8.61,3.53,3.57,Boechler Nicholas Sebastia,96.2
+MAE 175A,69.64,8.7,3.41,3.71,de Callafon Raymond A,80.68
+MAE 180A,82.63,7.62,3.24,3.13,Bahadori Mohammad Yousef,94.02
+MAE 181,93.24,6.18,3.39,3.16,Bahadori Mohammad Yousef,91.52
+MAE 184,98.08,5.54,3.84,3.73,Anderson Mark Ronald,94.75
+MAE 185,100.0,6.36,3.64,3.57,Schmidt Oliver,100.0
+MAE 190,95.53,5.91,3.62,3.56,Anderson Mark Ronald,100.0
+MAE 191,95.0,5.97,3.85,3.78,Qi Huihui,100.0
+MAE 2,96.83,5.52,3.37,3.32,Hwang John T,98.3
+MAE 20,90.05,6.42,3.45,3.27,Evdokimenko Ekaterina,98.84
+MAE 21,98.32,4.42,3.81,3.7,Cai Shengqiang,96.78
+MAE 3,85.52,13.03,3.42,3.32,Morimoto Tania,95.34
+MAE 30A,93.14,7.17,3.3,3.03,Qi Huihui,96.81
+MAE 30B,86.55,7.23,3.18,2.96,Ghazinejad Maziar,98.7
+MAE 40,69.16,8.65,2.74,2.89,Cortes Jorge,93.8
+MAE 5,81.8,4.42,3.73,3.86,Gibson Carl H.,79.78
+MAE 8,92.95,6.8,3.49,3.32,Lynch James Edmund,100.0
+MAE 94,100.0,1.5,3.67,4.0,Saha Abhishek,100.0
+PSYC 1,96.5,4.25,3.61,3.4,Hanes Esther,98.88
+PSYC 100,96.79,5.68,3.67,3.6,Lacefield Katharine I,96.95
+PSYC 101,95.36,5.04,3.56,3.34,Kim Min Ju,100.0
+PSYC 102,88.95,5.95,3.33,3.19,Breit Kristen Rian,100.0
+PSYC 104,93.69,5.51,3.56,3.38,Root Nicholas Bernard,100.0
+PSYC 105,94.98,5.3,3.43,3.22,Brady Timothy Francis,98.54
+PSYC 106,89.51,5.65,3.39,3.09,Dobkins Karen R.,94.07
+PSYC 108,91.68,5.15,3.59,3.49,Urgolites Zhisen Jiang,93.55
+PSYC 110,95.2,3.58,3.82,3.91,Heyman Gail D.,87.28
+PSYC 111A,88.26,9.72,3.55,3.61,Lowe Angela Beth,97.1
+PSYC 111B,93.6,9.54,3.69,3.8,Geller Emma Harlan,98.38
+PSYC 113,90.9,4.12,3.78,4.0,Stoermer Viola Sophie,95.45
+PSYC 114,93.94,4.07,3.63,3.57,Winkielman Piotr,95.65
+PSYC 116A,94.87,4.68,3.76,3.91,Lang Ariel,94.87
+PSYC 116B,91.34,5.52,3.66,3.78,Lang Ariel,97.5
+PSYC 116C,100.0,5.17,3.89,3.95,Lang Ariel,100.0
+PSYC 117,100.0,5.07,3.99,4.0,Bajic Daniel Andrew,100.0
+PSYC 118,86.73,4.06,3.86,3.66,Miller Cory T.,88.13
+PSYC 122,90.08,5.44,3.48,3.4,Miller Cory T.,93.5
+PSYC 124,93.49,4.44,3.77,3.77,Gasperi Marianna,100.0
+PSYC 125,94.27,4.84,3.46,3.15,Rose Fred E.,95.13
+PSYC 129,80.27,4.18,3.38,3.34,Fletcher Laura Michelle,95.5
+PSYC 131,95.15,3.88,3.87,3.86,Anagnostaras Stephan,94.63
+PSYC 132,92.57,6.26,3.26,2.97,Steiner Eric Tomas,96.83
+PSYC 133,78.1,7.44,3.26,2.92,Gorman Michael R.,84.5
+PSYC 133R,78.8,6.44,3.39,2.91,Gorman Michael R.,97.0
+PSYC 134,88.18,3.97,3.57,3.37,Kaye Walter H.,81.36
+PSYC 136,90.88,4.9,3.23,3.05,Lowe Angela Beth,96.28
+PSYC 137,87.4,4.58,3.48,3.31,Chung Min-gi,100.0
+PSYC 138,90.9,4.11,3.42,3.33,Accomando Alyssa Wheeler,92.7
+PSYC 141,89.58,4.96,3.42,3.24,Breit Kristen Rian,100.0
+PSYC 142,96.6,4.38,3.37,2.73,Root Nicholas Bernard,100.0
+PSYC 143,89.4,3.97,3.47,3.77,Lacefield Katharine I,90.4
+PSYC 144,91.4,5.78,3.24,3.0,Wixted John T,95.96
+PSYC 145,96.2,4.37,3.53,3.06,Ahn Danbi,96.5
+PSYC 147,94.87,5.11,3.52,3.41,Wong Lauren Hitomi,97.97
+PSYC 148,81.04,4.76,3.25,3.06,Hanes Esther,100.0
+PSYC 151,81.9,4.04,3.2,2.94,Glaser Dale,88.72
+PSYC 152,95.7,4.38,3.6,3.34,Gasperi Marianna,98.7
+PSYC 153,92.6,5.56,3.34,3.02,Chung Min-gi,100.0
+PSYC 154,96.55,4.57,3.72,3.63,Lacefield Katharine I,98.15
+PSYC 155,97.17,4.68,3.8,3.77,Dickenson Janna Alene,99.4
+PSYC 156,95.95,7.41,3.55,3.26,Geiss Elisa G,88.6
+PSYC 158,96.25,4.35,3.75,3.63,Harris Christine Renee,100.0
+PSYC 161,56.27,4.88,3.07,3.04,St John Mark F.,73.6
+PSYC 162,93.86,5.11,3.36,3.04,Wilson Brent M,97.2
+PSYC 164,94.39,3.93,3.56,3.41,Hanes Esther,95.63
+PSYC 166,90.6,3.56,3.68,3.12,Fletcher Laura Michelle,96.15
+PSYC 167,100.0,4.61,3.61,3.6,Walker Caren Michelle,97.43
+PSYC 168,96.46,4.98,3.67,3.71,Lacefield Katharine I,96.67
+PSYC 169,59.42,4.39,3.35,2.86,Ramachandran Vilayanur S,41.02
+PSYC 171,90.6,5.24,3.52,3.67,Van Alstyne Kaitlin Rhianna,95.5
+PSYC 172,94.49,5.27,3.47,3.39,Frederick David A,95.9
+PSYC 174,96.97,4.35,3.48,3.13,Swan Garrett Preston,100.0
+PSYC 175,100.0,4.07,3.88,3.74,Bondi Taylor Ellyn,100.0
+PSYC 176,82.33,3.66,3.53,3.36,Mc Kenzie Craig R.M.,82.77
+PSYC 178,90.63,4.22,3.46,3.22,Glaser Dale,94.75
+PSYC 179,97.92,4.35,3.74,3.69,Breit Kristen Rian,99.45
+PSYC 180,96.06,4.66,3.8,3.58,Hanes Esther,96.12
+PSYC 181,93.97,5.05,3.53,3.44,Van Alstyne Kaitlin Rhianna,97.2
+PSYC 181GS,100.0,3.24,3.85,3.82,Anagnostaras Stephan,100.0
+PSYC 182,94.83,3.62,3.62,3.52,Swan Garrett Preston,99.2
+PSYC 184,97.35,4.36,3.72,3.7,Wilson Brent M,99.15
+PSYC 185,77.62,5.67,3.31,3.36,Aron Adam,78.52
+PSYC 186GS,96.2,3.24,3.81,3.94,Anagnostaras Stephan,100.0
+PSYC 187,93.73,4.26,3.35,3.23,Brady Adena Schachner,100.0
+PSYC 188,97.38,4.41,3.66,3.49,Lacefield Katharine I,99.45
+PSYC 189,74.2,6.2,3.36,3.13,Gentner Tim,88.45
+PSYC 190,96.64,4.7,3.7,3.59,Hanes Esther,100.0
+PSYC 190R,83.55,4.71,3.58,3.4,Barner David A.,85.4
+PSYC 191,91.79,4.95,3.21,3.04,Rickard Timothy C.,91.62
+PSYC 193,95.15,4.66,3.74,3.62,Agrawal Tanushree,100.0
+PSYC 193GS,100.0,4.7,3.9,3.98,Anagnostaras Stephan,100.0
+PSYC 193L,94.3,6.1,3.61,3.62,Barner David A.,100.0
+PSYC 194A,100.0,5.49,3.94,3.97,Heyman Gail D.,97.22
+PSYC 194B,100.0,8.22,4.0,4.0,Heyman Gail D.,97.5
+PSYC 194C,100.0,9.18,3.93,3.98,Heyman Gail D.,100.0
+PSYC 2,88.15,5.71,3.31,3.07,Van Alstyne Kaitlin Rhianna,97.5
+PSYC 3,96.72,4.55,3.5,3.07,Fine Rachel,100.0
+PSYC 4,90.83,4.08,3.52,3.4,Shields Chloe,100.0
+PSYC 6,95.49,3.95,3.56,3.39,Holden Stefanie Cathrine Marie,100.0
+PSYC 60,89.52,5.44,3.2,2.86,Lowe Angela Beth,96.92
+PSYC 7,97.57,3.64,3.51,3.54,Hanes Esther,100.0
+PSYC 70,93.49,5.22,3.35,3.07,Lowe Angela Beth,100.0
+PSYC 71,88.72,5.92,3.29,3.17,Pilegard Celeste Cristine,98.04
+PSYC 81,93.2,4.73,3.43,3.53,Miller Cory T.,95.5

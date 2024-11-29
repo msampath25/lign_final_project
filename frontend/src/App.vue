@@ -5,6 +5,7 @@ import Prompt from './components/Prompt.vue'
 import SubmitButton from './components/SubmitButton.vue';
 import ClearConversation from './components/ClearConversation.vue';
 import { ref, watchEffect, onMounted } from 'vue';
+import Papa from 'papaparse';
 import axios from 'axios';
 
 // Generate a unique conversation ID for the session
@@ -12,7 +13,11 @@ const conversationId = ref(crypto.randomUUID());
 
 // these are refs to store the data
 const chatHistory = ref([
-  { role: 'system', content: 'You are an academic advisor for UCSD. Provide course recommendations based on the user input.' },
+  { role: 'system', 
+    content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
+    Output course name and description from courseData.
+    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+  },
 ]);
 const selectedLevels = ref(['lower', 'upper', 'graduate']);
 const selectedDepartments = ref([]);
@@ -31,18 +36,84 @@ watchEffect(() => {
   })
 })
 
+const processCapesData = async () => {
+  const capesFile = await fetch('/average_capes_data.csv');
+  const text = await capesFile.text();
+
+  return new Promise((resolve, reject) => {
+    Papa.parse(text, {
+      header: true,
+      complete: (results) => {
+        // Extract relevant columns and structure data
+        const summary = results.data.map((row) => ({
+          C: row.C,
+          R: row.R,
+          H: row.H,
+          GE: row.GE,
+          GR: row.GR,
+          P: row.P,
+          PR: row.PR,
+        }));
+        resolve(summary); // Return the filtered and formatted data
+      },
+      error: (error) => reject(error),
+    });
+  });
+};
+
+const fetchCourseData = async (department, courseNamesFromCSV) => {
+  const response = await fetch(`/${department}.html`);
+  const htmlContent = await response.text();
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlContent, 'text/html');
+
+  // Extract course names and descriptions
+  const courseNames = [...doc.querySelectorAll('.course-name')];
+  const courseDescriptions = [...doc.querySelectorAll('.course-descriptions')];
+
+  // Filter courses based on course codes in the CSV
+  const filteredCourses = courseNames.map((courseEl, index) => {
+    const fullCourseName = courseEl.textContent.trim();
+    
+    // Extract course code from the full name (e.g., "BENG 1 Intro to Bioengineering" -> "BENG 1")
+    const courseCode = fullCourseName.split('.')[0].split('/')[0];  // Take only the first part (e.g., "BENG 1")
+
+    // Check if the course code is in the list of course codes from the CSV
+    if (courseNamesFromCSV.includes(courseCode)) {
+      const descriptionEl = courseDescriptions[index];
+      const description = descriptionEl ? descriptionEl.textContent.trim() : 'No description available';
+      
+      return { name: fullCourseName, description };
+    }
+    return null;
+  }).filter(course => course !== null);  // Remove null values from the array
+
+  return filteredCourses;  // Return the relevant data for the courses
+};
 
 // Function to handle submissions
 const handleSubmit = async () => {
   isLoading.value = true;
   isResponseReceived.value = false;
 
+  const capesData = await processCapesData();
+  const courseNamesFromCSV = capesData.map(course => course.C);
+  console.log(courseNamesFromCSV)
+  // Fetch course data for selected departments
+  const courseData = [];
+  for (const department of selectedDepartments.value) {
+    const departmentCourses = await fetchCourseData(department.name, courseNamesFromCSV);
+    courseData.push(...departmentCourses);
+  }
+  
   const userMessage = { 
     role: 'user', 
     content: JSON.stringify({
       levels: selectedLevels.value,
       departments: selectedDepartments.value,
       prompt: searchPrompt.value,
+      capesSummary: capesData, // Include CAPES data
+      courseDescriptions: courseData // Course website data
     })
   };
 
@@ -82,8 +153,13 @@ const clearConversation = async () => {
     
     // Reset everything
     chatHistory.value = [
-      { role: 'system', content: 'You are an academic advisor for UCSD. Provide course recommendations based on the user input.' },
+      { role: 'system', 
+        content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
+        Output course name and description from courseData.
+        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+      },
     ];
+
     openAIResponse.value = '';
     searchPrompt.value = '';
     isResponseReceived.value = false;
