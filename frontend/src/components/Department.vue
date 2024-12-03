@@ -17,11 +17,13 @@ const selectedDepartments = ref(props.modelValue)
 
 // Course data
 const courses = [
-  { id: 1, name: 'LIGN' },
-  { id: 2, name: 'BENG' },
-  { id: 3, name: 'CSE' },
-  { id: 4, name: 'DSC' },
-  { id: 5, name: 'MATH' },
+  { id: 1, name: 'BENG' },
+  { id: 2, name: 'CSE' },
+  { id: 3, name: 'DSC' },
+  { id: 4, name: 'ECE' },
+  { id: 5, name: 'LIGN' },
+  { id: 6, name: 'MAE' },
+  { id: 7, name: 'PSYC' }
 ]
 
 const filteredCourses = computed(() => 
@@ -85,11 +87,13 @@ export default {
   data() {
     return {
       departments: [
-        'LIGN',
         'BENG',
-        'DSC',
         'CSE',
-        'MATH',
+        'DSC',
+        'ECE',
+        'LIGN',
+        'MAE',
+        'PSYC'
       ], // Original departments
     };
   },
