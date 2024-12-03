@@ -20,7 +20,7 @@ const chatHistory = ref([
   },
 ]);
 const selectedLevels = ref(['lower', 'upper', 'graduate']);
-const selectedDepartments = ref([]);
+const selectedDepartments = ref('');
 const searchPrompt = ref('');
 const openAIResponse = ref('');
 const isLoading = ref(false);
@@ -102,6 +102,7 @@ const handleSubmit = async () => {
   const courseData = [];
   for (const department of selectedDepartments.value) {
     const departmentCourses = await fetchCourseData(department.name, courseNamesFromCSV);
+    console.log(department.name)
     courseData.push(...departmentCourses);
   }
   

@@ -4,8 +4,8 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   modelValue: {
-    type: Array,
-    default: () => []
+    type: String,
+    default: ''
   }
 })
 
