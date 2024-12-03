@@ -16,7 +16,7 @@ const chatHistory = ref([
   { role: 'system', 
     content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
     Output course name and description from courseData.
-    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) associated with the corresponding classes from courseData. Rank the results based on these metrics. `
+    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
   },
 ]);
 const selectedLevels = ref(['lower', 'upper', 'graduate']);
@@ -98,11 +98,11 @@ const handleSubmit = async () => {
 
   const capesData = await processCapesData();
   const courseNamesFromCSV = capesData.map(course => course.C);
+  console.log(courseNamesFromCSV)
   // Fetch course data for selected departments
   const courseData = [];
   for (const department of selectedDepartments.value) {
     const departmentCourses = await fetchCourseData(department.name, courseNamesFromCSV);
-    console.log(departmentCourses)
     courseData.push(...departmentCourses);
   }
   
@@ -156,7 +156,7 @@ const clearConversation = async () => {
       { role: 'system', 
         content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
         Output course name and description from courseData.
-        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) associated with the corresponding classes from courseData. Rank the results based on these metrics. `
+        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
       },
     ];
 
@@ -203,70 +203,83 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mx-auto px-8 py-8 min-h-screen flex flex-col bg-gray-900 text-white">
+  <div class="w-full h-screen flex flex-col bg-gray-900 text-white">
+    <!-- Header Section -->
     <h1 class="text-3xl font-bold mb-8 text-center text-white">UCSD Course Search</h1>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-grow">
-      <div class="col-span-1 lg:col-span-2 space-y-6">
-        <!-- Filters Section -->
-        <div class="filter-section flex flex-col bg-gray-800 p-4 rounded shadow-lg">
-          <h2 class="text-xl font-semibold mb-4 text-white">Filter Courses</h2>
-          <div class="grid gap-4 md:grid-cols-2">
-            <CourseLevel v-model="selectedLevels" />
-            <Department v-model="selectedDepartments" />
-          </div>
-        </div>
 
-        <!-- Prompt Section -->
-        <div class="prompt-section flex flex-col bg-gray-800 p-4 rounded shadow-lg">
-          <h2 class="text-xl font-semibold mb-4 text-white bg-transparent">Generate Search</h2>
-          <Prompt v-model="searchPrompt" />
-        </div>
-
-        <!-- Button Section -->
-        <div class="button-section mt-8 flex justify-center space-x-4">
-          <SubmitButton @submit="handleSubmit" />
-          <ClearConversation @clear="clearConversation" />
+    <!-- Fullscreen Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 flex-grow px-8 py-8">
+      <!-- Filters Section -->
+      <div class="filter-section bg-gray-800 p-4 rounded shadow-lg lg:col-span-2 md:col-span-2">
+        <h2 class="text-xl font-semibold mb-4 text-white">Filter Courses</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <CourseLevel v-model="selectedLevels" />
+          <Department v-model="selectedDepartments" />
         </div>
       </div>
-      <!-- Response Section -->
-      <div class="response-section flex flex-col bg-gray-800 p-4 rounded shadow-lg lg:col-span-2">
+
+      <!-- Prompt Section -->
+      <div class="prompt-section bg-gray-800 p-4 rounded shadow-lg lg:col-span-2 md:col-span-2">
+        <h2 class="text-xl font-semibold mb-4 text-white">Generate Search</h2>
+        <Prompt v-model="searchPrompt" />
+      </div>
+
+      <!-- Recommendations Section -->
+      <div class="response-section bg-gray-800 p-4 rounded shadow-lg lg:col-span-4 md:col-span-4">
         <h2 class="text-lg font-semibold mb-2">Recommendations</h2>
         <div v-if="isLoading">Generating response...</div>
         <div v-else-if="isResponseReceived">{{ openAIResponse }}</div>
         <div v-else>No response yet</div>
       </div>
     </div>
+
+    <!-- Button Section -->
+    <div class="button-section flex justify-center gap-4 px-8 py-4 bg-gray-900">
+      <SubmitButton class="w-1/2 md:w-1/4 lg:w-1/6" @submit="handleSubmit" />
+      <ClearConversation class="w-1/2 md:w-1/4 lg:w-1/6" @clear="clearConversation" />
+    </div>
   </div>
 </template>
 
+
+
+
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+/* Ensure full-screen usage */
+.flex-grow {
+  display: grid;
+  grid-template-columns: 1fr; /* Default single column */
+  grid-gap: 1rem;
+  height: 100%; /* Full height */
 }
 
-.filter-section, .response-section, .prompt-section {
-  display: flex;
-  flex-direction: column;
+@media (min-width: 768px) {
+  /* Two-column layout for medium screens */
+  .flex-grow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Four-column layout for large screens */
+  .flex-grow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ensure components inside grid span properly */
+.filter-section,
+.prompt-section,
+.response-section {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
 }
 
 .button-section {
-  display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  width: 100%;
 }
 
-
-/* Adjust height only for larger screens if needed */
-@media (min-width: 1024px) {
-  .container {
-    padding: 2rem;
-  }
-  .filter-section, .response-section, .prompt-section {
-    min-height: 500px;
-  }
-}
 </style>
