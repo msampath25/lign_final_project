@@ -67,113 +67,63 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="dropdown">
-    <button 
-      @click="toggleDropdown" 
-      class="dropdown-button"
-    >
-      {{ getSelectedLevelsText }}
-    </button>
-
-    <div 
-      v-if="isOpen" 
-      class="dropdown-content"
-    >
-      <div class="class-list">
-        <div 
-          v-for="level in levels" 
-          :key="level.id"
-          class="dropdown-item"
-        >
-          <label class="checkbox-label">
-            <input 
-              type="checkbox" 
-              :value="level.value"
-              v-model="selectedLevels"
-              @change="updateSelection"
-            >
-            <span class="course-name">{{ level.name }} {{ level.description }}</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="select-all">
-        <label class="checkbox-label">
-          <input 
+  <div>
+    <h3 class="text-lg font-medium mb-2">Course Level</h3>
+    <ul class="list-none">
+      <li v-for="level in courseLevels" :key="level" class="mb-2">
+        <label>
+          <input
             type="checkbox"
-            v-model="selectAll"
-            @change="toggleSelectAll"
-          >
-          <span class="course-name">Select All</span>
+            v-model="selectedLevels"
+            :value="level"
+            class="mr-2"
+          />
+          {{ level }}
         </label>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
-  <style scoped>
-  .course-level-selector {
-    position: relative;
-    display: inline-block;
-    min-width: 200px;
-  }
-  
-  .level-button {
-    width: 100%;
-    padding: 10px 20px;
-    background-color: #056469;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 14px;
-  }
-  
-  .level-button:hover {
-    background-color: #17801c;
-  }
-  
-  .level-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #000000;
-    box-shadow: 0px 8px 16px 0px rgba(156, 15, 15, 0.2);
-    border-radius: 4px;
-    margin-top: 4px;
-    z-index: 1;
-  }
-  
-  .level-options {
-    padding: 10px;
-  }
-  
-  .level-option {
-    display: block;
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .level-option:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .select-all {
-    padding: 10px;
-    border-top: 1px solid #eee;
-    background-color: #090000;
-  }
-  
-  input[type="checkbox"] {
-    cursor: pointer;
-  }
-  
-  label {
-    cursor: pointer;
-    user-select: none;
-  }
-  </style>
+
+<script>
+export default {
+  props: {
+    modelValue: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      courseLevels: ['Lower Division (1-99)', 'Upper Division (100-199)', 'Graduate (200+)'], // Original levels
+    };
+  },
+  computed: {
+    selectedLevels: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
+  },
+};
+</script>
+
+<style scoped>
+.list-none {
+  list-style: none;
+  padding: 0;
+}
+
+label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  accent-color: #4a5568; /* Gray */
+}
+</style>

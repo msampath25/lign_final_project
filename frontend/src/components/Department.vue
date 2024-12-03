@@ -56,133 +56,69 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="dropdown">
-    <button 
-      @click="toggleDropdown" 
-      class="dropdown-button"
-    >
-      {{ selectedDepartments.length ? `${selectedDepartments.length} Departments Selected` : 'Select Departments' }}
-    </button>
-
-    <div 
-      v-if="isOpen" 
-      class="dropdown-content"
-    >
-      <div class="search-container">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
-          placeholder="Search departments..."
-          class="search-input"
-        >
-      </div>
-
-      <div class="class-list">
-        <div 
-          v-for="course in filteredCourses" 
-          :key="course.id"
-          class="dropdown-item"
-        >
-          <label class="checkbox-label">
-            <input 
-              type="checkbox" 
-              :value="course"
-              v-model="selectedDepartments"
-              @change="updateSelection"
-            >
-            <span class="course-name">{{ course.name }}</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="selected-count" v-if="selectedDepartments.length">
-        Selected: {{ selectedDepartments.length }}
-      </div>
-    </div>
+  <div>
+    <h3 class="text-lg font-medium mb-2">Department</h3>
+    <ul class="list-none">
+      <li v-for="department in departments" :key="department" class="mb-2">
+        <label>
+          <input
+            type="radio"
+            v-model="selectedDepartment"
+            :value="department"
+            class="mr-2"
+          />
+          {{ department }}
+        </label>
+      </li>
+    </ul>
   </div>
 </template>
-  
+
+<script>
+export default {
+  props: {
+    modelValue: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      departments: [
+        'LIGN',
+        'BENG',
+        'DSC',
+        'CSE',
+        'MATH',
+      ], // Original departments
+    };
+  },
+  computed: {
+    selectedDepartment: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value);
+      },
+    },
+  },
+};
+</script>
+
 <style scoped>
-.dropdown {
-  position: relative;
-  display: inline-block;
-  min-width: 250px;
+.list-none {
+  list-style: none;
+  padding: 0;
 }
 
-.dropdown-button {
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #4c57af;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 4px;
+label {
   cursor: pointer;
-  text-align: left;
-}
-
-.dropdown-button:hover {
-  background-color: #8b45a0;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #000000;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 4px;
-  margin-top: 4px;
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.search-container {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  background-color: #060000;
-}
-
-.search-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.class-list {
-  padding: 5px 0;
-}
-
-.dropdown-item {
-  padding: 8px 16px;
-}
-
-.dropdown-item:hover {
-  background-color: #f5f5f5;
-}
-
-.checkbox-label {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  gap: 8px;
 }
 
-.course-name {
-  font-size: 14px;
-}
-
-.selected-count {
-  padding: 10px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #eee;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
+input[type='radio'] {
+  accent-color: #4a5568; /* Gray */
 }
 </style>
