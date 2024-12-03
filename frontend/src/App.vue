@@ -14,9 +14,9 @@ const conversationId = ref(crypto.randomUUID());
 // these are refs to store the data
 const chatHistory = ref([
   { role: 'system', 
-    content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
-    Output course name and description from courseData.
-    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+    content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseDescriptions). 
+    First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for the relevant courses. 
+    Rank the results based on these metrics. Do not make up course names and descriptions, pull them from the courseDescriptions, which describes every course im capesSummary. There should be no missing values.`
   },
 ]);
 const selectedLevels = ref(['lower', 'upper', 'graduate']);
@@ -100,11 +100,9 @@ const handleSubmit = async () => {
   const courseNamesFromCSV = capesData.map(course => course.C);
   // Fetch course data for selected departments
   const courseData = [];
-  for (const department of selectedDepartments.value) {
-    const departmentCourses = await fetchCourseData(department.name, courseNamesFromCSV);
-    console.log(department.name)
-    courseData.push(...departmentCourses);
-  }
+  const departmentCourses = await fetchCourseData(selectedDepartments.value, courseNamesFromCSV);
+  console.log(departmentCourses)
+  courseData.push(...departmentCourses);
   
   const userMessage = { 
     role: 'user', 
@@ -154,9 +152,9 @@ const clearConversation = async () => {
     // Reset everything
     chatHistory.value = [
       { role: 'system', 
-        content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
-        Output course name and description from courseData.
-        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+        content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseDescriptions). 
+        First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for the relevant courses. 
+        Rank the results based on these metrics. Do not make up course names and descriptions, pull them from the courseDescriptions, which describes every course im capesSummary. There should be no missing values.`
       },
     ];
 
