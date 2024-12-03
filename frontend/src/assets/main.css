@@ -1,11 +1,12 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%; /* Ensures it spans the full width of the screen */
+  margin: 0; /* Removes centering */
+  padding: 2rem; /* Optional: Keep padding for spacing */
   font-weight: normal;
 }
+
 
 a,
 .green {
@@ -28,8 +29,12 @@ a,
   }
 
   #app {
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Flexible grid */
+    width: 100%; /* Spans the full width */
+    padding: 0; /* Optional: Adjust or remove padding */
+    gap: 1rem; /* Optional: Add spacing between grid items */
   }
+  
 }

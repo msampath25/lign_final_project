@@ -203,8 +203,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full h-screen flex flex-col bg-gray-900 text-white">
-    <!-- Header Section -->
+  <div class="app-container">    <!-- Header Section -->
     <h1 class="text-3xl font-bold mb-8 text-center text-white">UCSD Course Search</h1>
 
     <!-- Fullscreen Grid Layout -->
@@ -280,6 +279,11 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.app-container {
+  background-color: #faf484; /* Light yellow */
+  min-height: 100vh;
+  color: #333; /* Text color */
 }
 
 </style>
