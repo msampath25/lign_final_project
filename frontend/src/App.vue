@@ -16,7 +16,7 @@ const chatHistory = ref([
   { role: 'system', 
     content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
     Output course name and description from courseData.
-    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+    From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) associated with the corresponding classes from courseData. Rank the results based on these metrics. `
   },
 ]);
 const selectedLevels = ref(['lower', 'upper', 'graduate']);
@@ -98,11 +98,11 @@ const handleSubmit = async () => {
 
   const capesData = await processCapesData();
   const courseNamesFromCSV = capesData.map(course => course.C);
-  console.log(courseNamesFromCSV)
   // Fetch course data for selected departments
   const courseData = [];
   for (const department of selectedDepartments.value) {
     const departmentCourses = await fetchCourseData(department.name, courseNamesFromCSV);
+    console.log(departmentCourses)
     courseData.push(...departmentCourses);
   }
   
@@ -156,7 +156,7 @@ const clearConversation = async () => {
       { role: 'system', 
         content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseData). 
         Output course name and description from courseData.
-        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP). Rank the results based on these metrics. `
+        From capesSummary, output the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) associated with the corresponding classes from courseData. Rank the results based on these metrics. `
       },
     ];
 
