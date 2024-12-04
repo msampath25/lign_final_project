@@ -1,4 +1,5 @@
 <script setup>
+import Header from './components/Header.vue';
 import CourseLevel from './components/CourseLevel.vue';
 import Department from './components/Department.vue';
 import Prompt from './components/Prompt.vue'
@@ -136,6 +137,7 @@ const handleSubmit = async () => {
     console.error('Error:', error.response?.data || error.message);
     openAIResponse.value = error.response?.data?.error || 'Failed to fetch recommendations';
   } finally {
+    
     isLoading.value = false;
     isResponseReceived.value = true;
     searchPrompt.value = ''; // Clear the input prompt
@@ -183,6 +185,22 @@ onMounted(() => {
     localStorage.setItem('conversationId', conversationId.value);
   }
 });
+
+function formatResponse(response) {
+  // First, bold the course titles (any department code followed by numbers)
+  let formatted = response.replace(/([A-Z]{2,4}\s+\d+[A-Z]?[^:\n]*)/g, '**$1**');
+  
+  // Italicize the descriptions that come after "Description:"
+  formatted = formatted.replace(/Description: ([^-\n]+)/g, 'Description: _$1_');
+  
+  // Convert markdown to HTML
+  formatted = formatted
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/_(.*?)_/g, '<em>$1</em>')
+    .replace(/\n/g, '<br>');
+  
+  return formatted;
+}
 // // handler function for logging/debugging
 // const handleLevelsChange = (levels) => {
 //   console.log('Levels changed:', levels);
@@ -202,8 +220,7 @@ onMounted(() => {
 
 <template>
   <div class="app-container">
-    <!-- Header Section -->
-    <h1 class="text-3xl font-bold mb-8 text-center text-white">UCSD Course Search</h1>
+    <Header />
 
     <!-- Split Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 py-8 h-full">
@@ -248,9 +265,9 @@ onMounted(() => {
 <style scoped>
 /* Ensure full-screen usage */
 .app-container {
-  background-color: #243a78;
+  background-color: #ffffff;
   min-height: 100vh;
-  color: #FFFFFF; /* Text color */
+  color: #2c6596; /* Text color */
 }
 
 /* Adjust grid layout */
