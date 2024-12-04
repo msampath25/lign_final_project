@@ -186,21 +186,15 @@ onMounted(() => {
   }
 });
 
-function formatResponse(response) {
-  // First, bold the course titles (any department code followed by numbers)
-  let formatted = response.replace(/([A-Z]{2,4}\s+\d+[A-Z]?[^:\n]*)/g, '**$1**');
-  
-  // Italicize the descriptions that come after "Description:"
-  formatted = formatted.replace(/Description: ([^-\n]+)/g, 'Description: _$1_');
-  
-  // Convert markdown to HTML
-  formatted = formatted
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/_(.*?)_/g, '<em>$1</em>')
-    .replace(/\n/g, '<br>');
-  
-  return formatted;
-}
+const formatResponse = (text) => {
+  return text
+    .replace(/\*/g, '')
+    .replace(/\n/g, '<br>')
+    .replace(/([A-Z]{2,}[0-9]{3})/g, '<strong>$1</strong>')
+    .replace(/(?<=<br>)(.*?)(?=<br>|$)/g, '<em>$1</em>');
+};
+
+
 // // handler function for logging/debugging
 // const handleLevelsChange = (levels) => {
 //   console.log('Levels changed:', levels);
@@ -223,19 +217,23 @@ function formatResponse(response) {
     <Header />
 
     <!-- Split Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 py-8 h-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4 h-full">
       <!-- Left Section: Filter, Prompt, and Buttons -->
       <div class="left-section flex flex-col gap-6">
-        <!-- Filter Section -->
-        <div class="filter-section bg-gray-800 p-4 rounded shadow-lg">
-          <h2 class="text-xl font-semibold mb-4 text-white">Filter Courses</h2>
-          <div class="grid gap-4 md:grid-cols-2">
+       <!-- Filter Section -->
+       <div class="filter-section bg-gray-800 p-4 rounded shadow-lg">
+        <h2 class="text-xl font-semibold mb-4 text-white">Filter Courses</h2>
+        <div class="flex gap-8">
+          <div class="w-1/4"> <!-- Container for CourseLevel -->
             <CourseLevel v-model="selectedLevels" />
+          </div>
+          <div class="w-3/4"> <!-- Container for Department -->
             <Department v-model="selectedDepartments" />
           </div>
         </div>
+      </div>
 
-        <!-- Prompt Section -->
+        <!-- Move the Prompt section above -->
         <div class="prompt-section bg-gray-800 p-4 rounded shadow-lg">
           <h2 class="text-xl font-semibold mb-4 text-white">Generate Search</h2>
           <Prompt v-model="searchPrompt" />
@@ -254,7 +252,7 @@ function formatResponse(response) {
         <div v-if="isLoading">Generating response...</div>
         <div
           v-else-if="isResponseReceived"
-          v-html="openAIResponse.replace(/\*/g, '').replace(/\n/g, '<br>')"
+          v-html="formatResponse(openAIResponse)"
         ></div>
         <div v-else>No response yet</div>
       </div>
@@ -263,20 +261,21 @@ function formatResponse(response) {
 </template>
 
 <style scoped>
-/* Ensure full-screen usage */
 .app-container {
   background-color: #ffffff;
   min-height: 100vh;
-  color: #2c6596; /* Text color */
+  color: #2c6596;
 }
 
-/* Adjust grid layout */
 .grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column by default */
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.0rem;
   height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
+
 
 @media (min-width: 1024px) {
   .grid {
@@ -287,10 +286,21 @@ function formatResponse(response) {
 .left-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.9rem;
 }
 
-.filter-section,
+.filter-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-section > div {
+  display: flex;
+  gap: 2rem; /* Increased gap between components */
+  align-items: start;
+  width: 100%; /* Ensure full width */
+}
+
 .prompt-section,
 .response-section,
 .button-section {

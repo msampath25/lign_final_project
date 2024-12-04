@@ -37,7 +37,7 @@ watch(selectedDepartment, (newValue) => {
 <template>
   <div>
     <h3 class="text-lg font-medium mb-2">Department</h3>
-    <div class="grid grid-cols-3 gap-2">
+    <div class="grid grid-cols-2 gap-2">
       <label
         v-for="department in departments"
         :key="department"
@@ -64,14 +64,18 @@ watch(selectedDepartment, (newValue) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.75rem; /* Increased padding */
   border: 1px solid #3a5576;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   background-color: white;
   transition: all 0.2s ease;
+  min-width: 500px; /* Added minimum width */
+  height: 80px; /* Added fixed height to make boxes larger */
+  justify-content: space-between; /* Better spacing of content */
 }
 
+/* Rest of the styles remain the same */
 .checkbox-container.selected {
   background-color: #3a5576;
 }

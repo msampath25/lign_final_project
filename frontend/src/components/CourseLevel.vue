@@ -42,7 +42,8 @@ const selectedLevels = ref([]);
   border: 1px solid #3a5576;
   border-radius: 0.5rem;
   cursor: pointer;
-  width: 120px;
+  width: 100%;
+  max-width: 200px;
   background-color: white;
   transition: all 0.2s ease;
 }
