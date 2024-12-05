@@ -15,12 +15,12 @@ const conversationId = ref(crypto.randomUUID());
 // these are refs to store the data
 const chatHistory = ref([
   { role: 'system', 
-    content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseDescriptions). 
-    First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for the relevant courses. 
-    Rank the results based on these metrics. Do not make up course names and descriptions, pull them from the courseDescriptions, which describes every course im capesSummary. There should be no missing values.`
+    content: `You are an academic advisor for UCSD. Your goal is to provide 5 course recommendations based on the user input, CAPES data (capesSummary), and course info (courseDescriptions). 
+    First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for each selected course, 
+    ensuring the C value matches the name field from courseDescriptions. Rank the results based on these metrics.`
   },
 ]);
-const selectedLevels = ref(['lower', 'upper', 'graduate']);
+const selectedLevels = ref([]);
 const selectedDepartments = ref('');
 const searchPrompt = ref('');
 const openAIResponse = ref('');
@@ -84,7 +84,7 @@ const fetchCourseData = async (department, courseNamesFromCSV) => {
       const descriptionEl = courseDescriptions[index];
       const description = descriptionEl ? descriptionEl.textContent.trim() : 'No description available';
       
-      return { name: fullCourseName, description };
+      return { name: courseCode, fullName: fullCourseName, description };
     }
     return null;
   }).filter(course => course !== null);  // Remove null values from the array
@@ -102,7 +102,6 @@ const handleSubmit = async () => {
   // Fetch course data for selected departments
   const courseData = [];
   const departmentCourses = await fetchCourseData(selectedDepartments.value, courseNamesFromCSV);
-  console.log(departmentCourses)
   courseData.push(...departmentCourses);
   
   const userMessage = { 
@@ -154,9 +153,9 @@ const clearConversation = async () => {
     // Reset everything
     chatHistory.value = [
       { role: 'system', 
-        content: `You are an academic advisor for UCSD. Your goal is to provide up to 5 course recommendations based on the user's input, CAPES data (capesSummary), and course info (courseDescriptions). 
-        First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for the relevant courses. 
-        Rank the results based on these metrics. Do not make up course names and descriptions, pull them from the courseDescriptions, which describes every course im capesSummary. There should be no missing values.`
+        content: `You are an academic advisor for UCSD. Your goal is to provide 5 course recommendations based on the user input, CAPES data (capesSummary), and course info (courseDescriptions). 
+        First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for each selected course, 
+        ensuring the C value matches the name field from courseDescriptions. Rank the results based on these metrics.`
       },
     ];
 
@@ -187,11 +186,19 @@ onMounted(() => {
 });
 
 const formatResponse = (text) => {
-  return text
-    .replace(/\*/g, '')
-    .replace(/\n/g, '<br>')
-    .replace(/([A-Z]{2,}[0-9]{3})/g, '<strong>$1</strong>')
-    .replace(/(?<=<br>)(.*?)(?=<br>|$)/g, '<em>$1</em>');
+  // Replace asterisks first
+  let formatted = text.replace(/\*/g, '');
+  formatted = formatted.replace(/###\s/g, '');
+
+
+  // Process lines before replacing newlines with <br>
+  formatted = formatted.replace(/^\d+\..*$/gm, (match) => `<strong>${match}</strong>`); // Bold lines starting with a number
+  formatted = formatted.replace(/^\s*-.*$/gm, (match) => `<em>${match}</em>`);         // Italicize lines starting with a hyphen
+
+  // Replace newlines with <br> after processing lines
+  formatted = formatted.replace(/\n/g, '<br>');
+
+  return formatted;
 };
 
 
@@ -319,5 +326,9 @@ const formatResponse = (text) => {
 input[type='checkbox'],
 input[type='radio'] {
   accent-color: #4a5568; /* Gray */
+}
+
+:deep(strong) {
+  font-weight: bold;
 }
 </style>

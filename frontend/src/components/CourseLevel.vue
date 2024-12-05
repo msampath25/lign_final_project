@@ -21,7 +21,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+
+const props = defineProps({
+  modelValue: {
+    type: Array,
+    default: () => [],
+  }
+});
+
+const emit = defineEmits(['update:modelValue']);
 
 const levels = [
   { id: 1, name: 'Lower Division', value: 'lower', description: '(1-99)' },
@@ -29,7 +38,10 @@ const levels = [
   { id: 3, name: 'Graduate', value: 'graduate', description: '(200+)' }
 ];
 
-const selectedLevels = ref([]);
+const selectedLevels = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value),
+});
 </script>
 
 <style scoped>
