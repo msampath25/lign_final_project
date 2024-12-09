@@ -16,8 +16,8 @@ const conversationId = ref(crypto.randomUUID());
 const chatHistory = ref([
   { role: 'system', 
     content: `You are an academic advisor for UCSD. Your goal is to provide 5 course recommendations based on the user input, CAPES data (capesSummary), and course info (courseDescriptions). 
-    First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for each selected course, 
-    ensuring the C value matches the name field from courseDescriptions. Rank the results based on these metrics.`
+    First look through the courseDescriptions to find appropriate classes. Then, find the course shortName in the C column of capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), quarters offered (Q), and top professor (TP) for each selected course. 
+    Rank the results based on these metrics. Output course name, description, and the aforementioned capes metrics. Do not mix up values for different courses.`
   },
 ]);
 const selectedLevels = ref([]);
@@ -52,6 +52,7 @@ const processCapesData = async () => {
           H: row.H,
           GE: row.GE,
           GR: row.GR,
+          Q: row.Q,
           P: row.P,
           PR: row.PR,
         }));
@@ -84,7 +85,7 @@ const fetchCourseData = async (department, courseNamesFromCSV) => {
       const descriptionEl = courseDescriptions[index];
       const description = descriptionEl ? descriptionEl.textContent.trim() : 'No description available';
       
-      return { name: courseCode, fullName: fullCourseName, description };
+      return { shortName: courseCode, fullName: fullCourseName, description };
     }
     return null;
   }).filter(course => course !== null);  // Remove null values from the array
@@ -154,8 +155,8 @@ const clearConversation = async () => {
     chatHistory.value = [
       { role: 'system', 
         content: `You are an academic advisor for UCSD. Your goal is to provide 5 course recommendations based on the user input, CAPES data (capesSummary), and course info (courseDescriptions). 
-        First look through the courseDescriptions to find appropriate classes. Then, from capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), and top professor (TP) for each selected course, 
-        ensuring the C value matches the name field from courseDescriptions. Rank the results based on these metrics.`
+        First look through the courseDescriptions to find appropriate classes. Then, find the course shortName in the C column of capesSummary, gather the percent who recommend class (P), hours of work per week (H), average grade received (GR), quarters offered (Q), and top professor (TP) for each selected course. 
+        Rank the results based on these metrics. Output course name, description, and the aforementioned capes metrics. Do not mix up values for different courses.`
       },
     ];
 
