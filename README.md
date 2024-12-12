@@ -29,7 +29,7 @@ Next, clone this repository:
 git clone https://github.com/msampath25/lign_final_project
 ```
 
-You will need to provide your OpenAI API key for the application to work. Do this by creating a `.env` file in the `backend` directory of the repo. The formatting should be as seen below, replacing `your_key` with the actual API key:
+You will need to provide your OpenAI API key for the application to work. Do this by creating a `.env` file in the `backend` directory of the repo. The required contents of the file can be seen below, replacing `your_key` with the actual API key:
 
 ```sh
 OPENAI_API_KEY = your_key
