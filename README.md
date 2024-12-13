@@ -37,6 +37,18 @@ OPENAI_API_KEY = your_key
 
 If this alone does not work, you may have to run the above command directly from the command line to export `OPENAI_API_KEY` as an environment variable.
 
+Navigate to the backend directory and run
+
+```sh
+npm install
+```
+
+Navigate to the frontend directory and run
+
+```sh
+npm install
+```
+
 ## Running the Tool
 
 Once everything is installed properly, navigate to the `frontend` directory. Then, run the following command to start the application. Copy and paste the `Local` link, for example `http://localhost:5173/` into your browser.
