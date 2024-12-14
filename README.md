@@ -25,13 +25,14 @@ npm install papaparse
 npm install axios
 ```
 
-Next, clone this repository:
+Next, clone this repository and then navigate to the `lign_final_project` directory:
 
 ```sh
 git clone https://github.com/msampath25/lign_final_project
+cd lign_final_project
 ```
 
-You will need to provide your OpenAI API key for the application to work. Do this by creating a `.env` file in the `backend` directory of the repo. The required contents of the file can be seen below, replacing `your_key` with the actual API key:
+You will need to provide your OpenAI API key for the application to work. Do this by creating a `.env` file in the `backend` directory of the repo. The required contents of the file can be seen below, replacing `your_key` with the actual API key. Ensure there is a space before and after the `=` sign for proper use:
 
 ```sh
 OPENAI_API_KEY = your_key
@@ -39,15 +40,17 @@ OPENAI_API_KEY = your_key
 
 If this alone does not work, you may have to run the above command directly from the command line to export `OPENAI_API_KEY` as an environment variable.
 
-Navigate to the backend directory and run
+Navigate to the `backend` directory and run `npm install ` to install the necessary dependences:
 
 ```sh
+cd backend
 npm install
 ```
 
-Navigate to the frontend directory and run
+Navigate to the `frontend` directory and run `npm install ` to install the necessary dependences:
 
 ```sh
+cd ../frontend
 npm install
 ```
 
