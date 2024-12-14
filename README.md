@@ -40,14 +40,14 @@ OPENAI_API_KEY = your_key
 
 If this alone does not work, you may have to run the above command directly from the command line to export `OPENAI_API_KEY` as an environment variable.
 
-Navigate to the `backend` directory and run `npm install ` to install the necessary dependences:
+Navigate to the `backend` directory and run `npm install` to install the necessary dependences:
 
 ```sh
 cd backend
 npm install
 ```
 
-Navigate to the `frontend` directory and run `npm install ` to install the necessary dependences:
+Navigate to the `frontend` directory and run `npm install` to install the necessary dependences:
 
 ```sh
 cd ../frontend
