@@ -2,7 +2,9 @@
 ### LIGN 167 Final Project
 ### Amber Tse, Manish Sampath, and Safa Saeed
 
-UCSD Course Search is an application that utilizes GPT-4o mini to make course recommendations for UCSD students based on their preferences. We pull data from CAPEs reviews and the course catalogs to inform the OpenAI API's decisions.
+UCSD Course Search is an application that utilizes GPT-4o mini to make course recommendations for UCSD students based on their preferences. We pull data from [CAPEs reviews](https://www.kaggle.com/datasets/sanbornpnguyen/ucsdcapes/data) and the course catalogs to inform the OpenAI API's decisions.
+
+**Note:** We utilized both ChatGPT and the professional version of Claude to write our code, particularly the `.vue` files used for our file processing, OpenAI API call, and application interface.
 
 ## Installation
 
@@ -56,13 +58,14 @@ npm install
 
 ## Running the Tool
 
-Once everything is installed properly, navigate to the `frontend` directory. Then, run the following command to start the application. Copy and paste the `Local` link, for example `http://localhost:5173/` into your browser.
+Once everything is installed properly, navigate to the `frontend` directory. Then, run the following command to start the application:
 
 ```sh
 npm run dev
 ```
+Copy and paste the provided `Local` link, for example `http://localhost:5173/` into your browser.
 
-You should be able to see the buttons to select Course Level and Department, along with the Generate Search prompt entry area. Make all of your selections, enter your prompt, and press submit to see your class recommendations generate on the right side of the screen.
+You should now be able to see the buttons to select Course Level and Department, along with the Generate Search prompt entry area. Make all of your selections, enter your prompt, and press submit to see your class recommendations generate on the right side of the screen.
 
 If you want to submit a new search, make sure to click `Clear Conversation` first so the API call is not overloaded.
 
